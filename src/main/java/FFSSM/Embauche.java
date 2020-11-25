@@ -1,16 +1,15 @@
 package FFSSM;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 
 public class Embauche {
 
-    private LocalDate debut;
-
+    private final LocalDate debut;
     private LocalDate fin;
-
     private final Moniteur employe;
-
     private final Club employeur;
+    public HashSet<Embauche> myFinEmbauches = new HashSet<>();
 
     public Embauche(LocalDate debut, Moniteur employe, Club employeur) {
         this.debut = debut;
@@ -20,20 +19,23 @@ public class Embauche {
 
     /**
      * Termine cette embauche
+     *
      * @param dateFin la date à laquelle cette embauche est terminée
      */
     public void terminer(LocalDate dateFin) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");	    
+        fin = dateFin;
+        myFinEmbauches.add(this);
     }
-    
+
     /**
      * Est-ce que cette embauche est terminée ?
+     *
      * @return vrai si terminée, faux sinon.
      */
     public boolean estTerminee() {
         return (fin != null);
     }
+
     /**
      * Get the value of employeur
      *
@@ -79,5 +81,4 @@ public class Embauche {
         return debut;
     }
 
-    
 }

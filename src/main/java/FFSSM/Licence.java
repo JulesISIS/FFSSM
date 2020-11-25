@@ -8,13 +8,9 @@ import java.time.LocalDate;
 public class Licence {
 
     public Personne possesseur;
-
     public String numero;
-
     public LocalDate delivrance;
-
     public int niveau;
-
     public Club club;
 
     public Licence(Personne possesseur, String numero, LocalDate delivrance, int niveau, Club club) {
@@ -46,14 +42,14 @@ public class Licence {
     }
 
     /**
-     * Est-ce que la licence est valide à la date indiquée ?
-     * Une licence est valide pendant un an à compter de sa date de délivrance
+     * Est-ce que la licence est valide à la date indiquée ? Une licence est
+     * valide pendant un an à compter de sa date de délivrance
+     *
      * @param d la date à tester
      * @return vrai si valide à la date d
-     **/
+     *
+     */
     public boolean estValide(LocalDate d) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        return d.isBefore(delivrance.plusYears(1)) && d.isAfter(delivrance);
     }
-
 }

@@ -33,7 +33,7 @@ public class Personne
         return numeroINSEE;
     }
 
-    public void setNumeroINSEE(String numeroINSEE) {
+    public final void setNumeroINSEE(String numeroINSEE) {
         // Vérifier la cardinalité implicite [1]
 	if (null == numeroINSEE)
 		throw new IllegalArgumentException("numeroINSEE is null");
