@@ -5,6 +5,7 @@ package FFSSM;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ public class Moniteur extends Personne {
 
     public int numeroDiplome;
     public List<Embauche> myEmplois = new ArrayList();
+    public HashMap<Club, LocalDate> myNewEmbauches = new HashMap<>();
 
     public Moniteur(String numeroINSEE, String nom, String prenom, String adresse, String telephone, LocalDate naissance, int numeroDiplome) {
         super(numeroINSEE, nom, prenom, adresse, telephone, naissance);
@@ -26,8 +28,15 @@ public class Moniteur extends Personne {
      * @return l'employeur actuel de ce moniteur sous la forme d'un Optional
      */
     public Optional<Club> employeurActuel() {
-        // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        Optional<Club> myClubs;
+        if (!myEmplois.get(myEmplois.size() - 1).estTerminee()) {
+            Club club = myEmplois.get(myEmplois.size() - 1).getEmployeur();
+            myClubs = Optional.ofNullable(club);
+        } else {
+            Club club = null;
+            myClubs = Optional.ofNullable(club);
+        }
+        return myClubs;
     }
 
     /**
@@ -37,12 +46,12 @@ public class Moniteur extends Personne {
      * @param debutNouvelle la date de début de l'embauche
      */
     public void nouvelleEmbauche(Club employeur, LocalDate debutNouvelle) {
-        // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        Embauche emb = new Embauche(debutNouvelle, this, employeur);
+        myEmplois.add(emb);
     }
 
     public List<Embauche> emplois() {
-        myEmplois.add(this);
+        return myEmplois;
     }
 
 }
