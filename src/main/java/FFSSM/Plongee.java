@@ -4,7 +4,7 @@
 package FFSSM;
 
 import java.time.LocalDate;
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class Plongee {
 
@@ -13,7 +13,7 @@ public class Plongee {
     public LocalDate date;
     public int profondeur;
     public int duree;
-    public HashSet<Licence> myParticipants = new HashSet<>();
+    public ArrayList<Licence> myParticipants = new ArrayList<>();
 
     public Plongee(Site lieu, Moniteur chefDePalanquee, LocalDate date, int profondeur, int duree) {
         this.lieu = lieu;

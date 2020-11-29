@@ -1,5 +1,6 @@
 package FFSSM;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ public class Club {
     public String nom;
     public String adresse;
     public String telephone;
-    public HashSet<Plongee> myPlongees = new HashSet<>();
+    public ArrayList<Plongee> myPlongees = new ArrayList<>();
     public Set<Plongee> myPlongeesNC = new HashSet<>();
 
     public Club(Moniteur président, String nom, String telephone) {
